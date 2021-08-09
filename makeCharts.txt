@@ -1,4 +1,4 @@
-Log Started: 2021-08-09 09:01:23.805897. Saving in out\makeCharts.txt.
+Log Started: 2021-08-09 12:45:24.200101. Saving in out\makeCharts.txt.
 
 Reading Market Info from MarketSet_v1.csv
 Generating Summary Data
@@ -24,7 +24,7 @@ LABU     | NEW Bio              : Direxion Daily S&P Biotech Bull 3x Shares
 XBI      | NEW Bio              : SPDR S&P Biotech ETF 
 RIOT     | NEW Blockchain       : Riot Blockchain, Inc. 
 RIGZ     | NEW Blockchain       : Mining companies & Semiconductors 
-Exception Caught: Length of values (12) does not match length of index (14)
+Exception Caught: Length of values (9) does not match length of index (15)
 ACES     | NEW CleanEnergy      : ALPS Clean Energy ETF 
 CNRG     | NEW CleanEnergy      : SPDR S&P Kensho Clean Power ETF 
 ICLN     | NEW CleanEnergy      : iShares Global Clean Energy ETF 
@@ -85,4 +85,4 @@ TOKE     | POT                  : Cambria Cannabis ETF
 YOLO     | POT                  : AdvisorShares Pure Cannabis ETF 
 Saving Summary Data
 Sending email subj MarketDrivers
-Log Closed: 2021-08-09 09:06:35.232347
+Log Closed: 2021-08-09 12:50:03.781935
