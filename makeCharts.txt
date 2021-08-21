@@ -1,5 +1,5 @@
 Log Started: 2021-08-21 11:55:39.298072. Saving in out\makeCharts.txt.
-
+...
 Reading Market Info from MarketSet_v1.csv
 Generating Summary Data
 SPY      | US Large Cap         : S&P 500 
