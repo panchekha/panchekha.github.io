@@ -1,5 +1,5 @@
-2021-08-22 08:29:59
-Idle:  0.2 sec | 2021-08-22 08:29:59
+2021-08-22 15:34:49
+Idle: 11.0 sec | 2021-08-22 15:34:49
+2021-08-22 08:33:16 mainKeySegmentCharts.py: OK
 2021-08-21 15:38:01 mainKeySegmentCharts.py: OK
 2021-08-21 08:33:13 mainKeySegmentCharts.py: OK
-2021-08-20 15:38:05 mainKeySegmentCharts.py: OK
