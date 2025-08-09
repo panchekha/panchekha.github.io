@@ -1,5 +1,0 @@
-2021-09-05 08:29:47
-Idle: 12.4 sec | 2021-09-05 08:29:47
-2021-09-03 08:33:37 mainKeySegmentCharts.py: OK
-2021-09-02 08:33:42 mainKeySegmentCharts.py: OK
-2021-09-01 08:32:50 mainKeySegmentCharts.py: OK
