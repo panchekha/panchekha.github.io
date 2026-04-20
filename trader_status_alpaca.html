@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="30">
+<title>Trader</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #fffffa; color: #222; margin: 0; padding: 12px 14px;
+    font-size: 14px; max-width: 640px;
+}
+.updated { color: #666; font-size: 11px; margin-bottom: 14px; }
+.dot { font-size: 14px; }
+
+/* services */
+.services { margin-bottom: 4px; }
+.svc-row {
+    display: flex; align-items: center; gap: 6px;
+    padding: 3px 0; line-height: 1.3; white-space: nowrap;
+}
+.col-icon   { width: 18px; flex-shrink: 0; text-align: center; }
+.col-name   { width: 68px; flex-shrink: 0; font-weight: 600; }
+.col-aux    { width: 82px; flex-shrink: 0; color: #999; font-size: 12px; }
+.col-extra  { width: 76px; flex-shrink: 0; color: #999; font-size: 12px; }
+.col-status { flex: 1; overflow: hidden; text-overflow: ellipsis; }
+
+/* attn */
+.attn-row   { padding: 6px 0 6px 24px; font-size: 13px; }
+.attn-empty { color: #ccc; }
+.attn-has   { color: #ef5350; }
+.attn-item  { padding: 1px 0; }
+
+/* assets */
+.section-label {
+    font-size: 10px; color: #ccc; text-transform: uppercase;
+    letter-spacing: 1px; padding: 10px 0 3px 0;
+    border-top: 1px solid #eee;
+}
+.asset-row {
+    display: flex; align-items: center; gap: 6px;
+    padding: 4px 0; font-size: 13px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.a-ticker { width: 44px; flex-shrink: 0; font-weight: 600; }
+.a-label  { width: 40px; flex-shrink: 0; font-size: 11px; color: #aaa; }
+.a-quote  { width: 60px; flex-shrink: 0; text-align: right; color: #888; }
+.a-sep    { color: #ddd; flex-shrink: 0; }
+.a-pos    { width: 44px; flex-shrink: 0; text-align: right; }
+.a-action { width: 30px; flex-shrink: 0; font-size: 12px; }
+.a-order  { flex: 1; color: #999; font-size: 12px;
+             overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sig-buy  { color: #4caf50; }
+.sig-sell { color: #ef5350; }
+.sig-none { color: #ccc; }
+.no-assets { color: #ccc; padding: 4px 0; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="updated" id="ts-updated" data-ts="2026-04-20T13:13:04+0100">2026-04-20 13:13:04 GMT Daylight Time</div>
+<div class="services">
+<div class="svc-row"><span class="col-icon"><span class="dot" style="color:#ccc">○</span></span><span class="col-name" style="color:#ccc">Market</span><span class="col-aux">New York, EDT</span><span class="col-extra">8:13:04 AM</span><span class="col-status">Off</span></div>
+<div class="svc-row"><span class="col-icon"><span class="dot" style="color:#ccc">○</span></span><span class="col-name" style="color:#ccc">Connect</span><span class="col-aux"></span><span class="col-extra"></span><span class="col-status">Off</span></div>
+<div class="svc-row"><span class="col-icon"><span class="dot" style="color:#ccc">○</span></span><span class="col-name" style="color:#ccc">Signal</span><span class="col-aux"></span><span class="col-extra"></span><span class="col-status">Off</span></div>
+<div class="svc-row"><span class="col-icon"><span class="dot" style="color:#ccc">○</span></span><span class="col-name" style="color:#ccc">Execute</span><span class="col-aux"></span><span class="col-extra"></span><span class="col-status">Off</span></div>
+</div>
+<div class="attn-row attn-empty">ATTN [None]</div>
+<div class="section-label">Assets</div>
+<div class="no-assets">[none]</div>
+
+<script>
+(function () {
+  var el = document.getElementById('ts-updated');
+  if (!el) return;
+  var ts   = new Date(el.dataset.ts);
+  var diff = Math.max(0, new Date() - ts);
+  var mins = diff / 60000;
+  var label;
+  if (mins < 1)       label = 'just now';
+  else if (mins < 60) label = (Math.round(mins * 10) / 10) + ' min ago';
+  else                label = Math.round(mins / 60) + ' hr ago';
+  el.insertAdjacentHTML('beforeend',
+    ' <span style="color:#aaa">(' + label + ')</span>');
+})();
+</script>
+
+</body>
+</html>
