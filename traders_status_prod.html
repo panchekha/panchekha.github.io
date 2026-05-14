@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trader Monitor: PROD</title>
+	
+    <!-- jQuery must be loaded BEFORE your script -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	
+    <style>
+        /* Ensure the layout fills the entire browser window */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Top section holding two horizontal frames */
+        .top-row {
+            display: flex;
+            height: 40%; /* Adjust as needed */
+        }
+        /* Bottom section holding one full-width frame */
+        .bottom-row {
+            height: 60%; /* Adjust as needed */
+        }
+        /* Style for all iframes to fill their containers */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+        }
+        .half-width {
+            flex: 1; /* Splits the top row equally */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Two Frames -->
+    <div class="top-row">
+        <div class="half-width">
+            <iframe src="https://panchekha.github.io/trader_status_ib_prod.html" name="topLeftFrame" title="Top Left Content"></iframe>
+        </div>
+        <div class="half-width">
+            <iframe src="https://panchekha.github.io/trader_status_alpaca_prod.html" name="topRightFrame" title="Top Right Content"></iframe>
+        </div>
+    </div>
+
+    <!-- Bottom Frames -->
+    <div class="bottom-row">
+	    <iframe src="https://panchekha.github.io/index.html" name="bottomFrame" title="Bottom Content"></iframe>
+        <!-- <iframe src="https://finance.yahoo.com/portfolio/pf_6/view/view_4" name="bottomFrame" title="Bottom Content"></iframe> -->
+    </div>
+	
+	<!-- Status element -->
+	<p id="last-refresh" style="font-size: 0.9em; color: #666; margin-top: 8px;">
+		Last refreshed: <span id="refresh-time">just now</span>
+	</p>
+	<!-- Links -->
+	<p> Links: 
+	    <a href="https://panchekha.github.io/trader_status_alpaca_prod.html" target="_blank" rel="noopener noreferrer">Alpaca</a>
+		| <a href="https://panchekha.github.io/trader_status_ib_prod.html" target="_blank" rel="noopener noreferrer">IB</a>
+		| <a href="https://panchekha.github.io/index.html" target="_blank" rel="noopener noreferrer">Trends</a>
+	</p>
+	
+	
+	<!-- Refresh JavaScript -->
+	<!-- Place your JavaScript here, right before </body> -->
+    <script>
+        $(document).ready(function() {
+
+            function refreshContent() {
+                $.ajax({
+                    url: window.location.href,   // or your specific endpoint
+                    success: function(newHtml) {
+                        const newContent = $(newHtml).find('div.bottom-row').html();
+                        if (newContent) {
+                            $('div.bottom-row').html(newContent);
+							
+							// Update the timestamp
+							const now = new Date();
+							const timeString = now.toLocaleTimeString([], { 
+								hour: '2-digit', 
+								minute: '2-digit',
+								second: '2-digit' 
+							});							
+							$('#refresh-time').text(timeString);
+                    },
+                    error: function() {
+                        console.log('Failed to refresh content');
+                    }
+                });
+            }
+
+            // Start refreshing every 5 minutes (300000 ms)
+            setInterval(refreshContent, 300000);
+
+        });
+    </script>
+	
+
+</body>
+</html>
